@@ -76,6 +76,7 @@ public class WorkVectors {
     final Vector vector2 = new Vector();
         bSuma.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                boolean aux;
                 b[0] =  startPointX.getText();
                 b[1] = startPointY.getText();
                 b[2] = endPointX.getText();
@@ -85,15 +86,24 @@ public class WorkVectors {
                 b[6] = endPointX2.getText();
                 b[7] = endPointY2.getText();
 
-                vector1.setX1(Double.parseDouble(b[0]));
-                vector1.setY1(Double.parseDouble(b[1]));
-                vector1.setX2(Double.parseDouble(b[2]));
-                vector1.setY2(Double.parseDouble(b[3]));
+                try {
+                    vector1.setX1(Double.parseDouble(b[0]));
+                    vector1.setY1(Double.parseDouble(b[1]));
+                    vector1.setX2(Double.parseDouble(b[2]));
+                    vector1.setY2(Double.parseDouble(b[3]));
 
-                vector2.setX1(Double.parseDouble(b[4]));
-                vector2.setY1(Double.parseDouble(b[5]));
-                vector2.setX2(Double.parseDouble(b[6]));
-                vector2.setY2(Double.parseDouble(b[7]));
+                    vector2.setX1(Double.parseDouble(b[4]));
+                    vector2.setY1(Double.parseDouble(b[5]));
+                    vector2.setX2(Double.parseDouble(b[6]));
+                    vector2.setY2(Double.parseDouble(b[7]));
+                    aux =true;
+                }
+                catch (java.lang.NumberFormatException e1)
+                {
+                    aux = false;
+                }
+
+
                 JFrame window2=new JFrame();
 
                 Vector vector3 = vector1.sumVector(vector1,vector2);
@@ -103,31 +113,38 @@ public class WorkVectors {
                 endPointY3.setText(String.valueOf(vector3.getY2()));
 
                 JLabel l3,x1,x2,y1,y2;
+                if(aux) {
+                    l3 = new JLabel("New Vector");
+                    x1 = new JLabel("Start Point X");
+                    y1 = new JLabel("Start Point Y");
+                    x2 = new JLabel("End point X");
+                    y2 = new JLabel("End point Y");
+                    l3.setBounds(10, 115, 70, 30);
 
-                l3=new JLabel("New Vector");
-                x1=new JLabel("Start Point X");
-                y1=new JLabel("Start Point Y");
-                x2=new JLabel("End point X");
-                y2=new JLabel("End point Y");
-                l3.setBounds(10, 115, 70, 30);
-
-                x1.setBounds(80,4, 90,30);
-                y1.setBounds(180,4, 90,30);
-                x2.setBounds(280,4, 90,30);
-                y2.setBounds(380,4, 90,30);
-                window2.add(x1);
-                window2.add(x2);
-                window2.add(y1);
-                window2.add(y2);
-                window2.add(l3);
-                window2.add(startPointX3);
-                window2.add(startPointY3);
-                window2.add(endPointX3);
-                window2.add(endPointY3);
-
+                    x1.setBounds(80, 4, 90, 30);
+                    y1.setBounds(180, 4, 90, 30);
+                    x2.setBounds(280, 4, 90, 30);
+                    y2.setBounds(380, 4, 90, 30);
+                    window2.add(x1);
+                    window2.add(x2);
+                    window2.add(y1);
+                    window2.add(y2);
+                    window2.add(l3);
+                    window2.add(startPointX3);
+                    window2.add(startPointY3);
+                    window2.add(endPointX3);
+                    window2.add(endPointY3);
+                }
+                else {
+                    l3 = new JLabel("ERROR");
+                    l3.setBounds(10, 115, 70, 30);
+                    window2.add(l3);
+                }
                 window2.setLayout(null);
                 window2.setVisible(true);
                 window2.setSize(500,300);
+
+
             }
         });
 
@@ -143,8 +160,9 @@ public class WorkVectors {
                 b[6] = endPointX2.getText();
                 b[7] = endPointY2.getText();
 
+                boolean aux;
 
-
+                try {
                 vector1.setX1(Double.parseDouble(b[0]));
                 vector1.setY1(Double.parseDouble(b[1]));
                 vector1.setX2(Double.parseDouble(b[2]));
@@ -154,37 +172,50 @@ public class WorkVectors {
                 vector2.setY1(Double.parseDouble(b[5]));
                 vector2.setX2(Double.parseDouble(b[6]));
                 vector2.setY2(Double.parseDouble(b[7]));
+                aux = true;
+                }
+                catch (java.lang.NumberFormatException e1) {
+                    aux = false;
+                }
                 JFrame window2=new JFrame();
 
                 Vector vector3 = vector1.minusVector(vector1,vector2);
-                startPointX3.setText(String.valueOf(vector3.getX1()));
-                startPointY3.setText(String.valueOf(vector3.getY1()));
-                endPointX3.setText(String.valueOf(vector3.getX2()));
-                endPointY3.setText(String.valueOf(vector3.getY2()));
+
+                    startPointX3.setText(String.valueOf(vector3.getX1()));
+                    startPointY3.setText(String.valueOf(vector3.getY1()));
+                    endPointX3.setText(String.valueOf(vector3.getX2()));
+                    endPointY3.setText(String.valueOf(vector3.getY2()));
+
+
 
                 JLabel l3,x1,x2,y1,y2;
+                if(aux) {
+                    l3 = new JLabel("New Vector");
+                    x1 = new JLabel("Start Point X");
+                    y1 = new JLabel("Start Point Y");
+                    x2 = new JLabel("End point X");
+                    y2 = new JLabel("End point Y");
+                    l3.setBounds(10, 115, 70, 30);
 
-                l3=new JLabel("New Vector");
-                x1=new JLabel("Start Point X");
-                y1=new JLabel("Start Point Y");
-                x2=new JLabel("End point X");
-                y2=new JLabel("End point Y");
-                l3.setBounds(10, 115, 70, 30);
-
-                x1.setBounds(80,4, 90,30);
-                y1.setBounds(180,4, 90,30);
-                x2.setBounds(280,4, 90,30);
-                y2.setBounds(380,4, 90,30);
-                window2.add(x1);
-                window2.add(x2);
-                window2.add(y1);
-                window2.add(y2);
-                window2.add(l3);
-                window2.add(startPointX3);
-                window2.add(startPointY3);
-                window2.add(endPointX3);
-                window2.add(endPointY3);
-
+                    x1.setBounds(80, 4, 90, 30);
+                    y1.setBounds(180, 4, 90, 30);
+                    x2.setBounds(280, 4, 90, 30);
+                    y2.setBounds(380, 4, 90, 30);
+                    window2.add(x1);
+                    window2.add(x2);
+                    window2.add(y1);
+                    window2.add(y2);
+                    window2.add(l3);
+                    window2.add(startPointX3);
+                    window2.add(startPointY3);
+                    window2.add(endPointX3);
+                    window2.add(endPointY3);
+                }
+                else {
+                    l3 = new JLabel("ERROR");
+                    l3.setBounds(10, 115, 70, 30);
+                    window2.add(l3);
+                }
                 window2.setLayout(null);
                 window2.setVisible(true);
                 window2.setSize(500,300);
