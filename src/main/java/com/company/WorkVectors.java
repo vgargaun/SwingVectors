@@ -34,10 +34,11 @@ public class WorkVectors {
         ////////////////////////////////////////////////////////////////////
         ///Label
         ////////////////////////////////////////////////////////////////////
-        JLabel l1,l2, l3,x1,x2,y1,y2;
+        final JLabel l1,l2, l3,l4,x1,x2,y1,y2;
         l1=new JLabel("Vector 1");
         l2=new JLabel("Vector 2");
         l3=new JLabel("New Vector");
+        l4 = new JLabel("ERROR");
         x1=new JLabel("Start Point X");
         y1=new JLabel("Start Point Y");
         x2=new JLabel("End point X");
@@ -74,8 +75,7 @@ public class WorkVectors {
 
     final Vector vector1 = new Vector();
     final Vector vector2 = new Vector();
-        bSuma.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
+        bSuma.addActionListener((e)-> {
                 boolean aux;
                 b[0] =  startPointX.getText();
                 b[1] = startPointY.getText();
@@ -112,13 +112,14 @@ public class WorkVectors {
                 endPointX3.setText(String.valueOf(vector3.getX2()));
                 endPointY3.setText(String.valueOf(vector3.getY2()));
 
-                JLabel l3,x1,x2,y1,y2;
+
                 if(aux) {
-                    l3 = new JLabel("New Vector");
-                    x1 = new JLabel("Start Point X");
-                    y1 = new JLabel("Start Point Y");
-                    x2 = new JLabel("End point X");
-                    y2 = new JLabel("End point Y");
+                    //JLabel l3,x1,x2,y1,y2;
+//                    l3 = new JLabel("New Vector");
+//                    x1 = new JLabel("Start Point X");
+//                    y1 = new JLabel("Start Point Y");
+//                    x2 = new JLabel("End point X");
+//                    y2 = new JLabel("End point Y");
                     l3.setBounds(10, 115, 70, 30);
 
                     x1.setBounds(80, 4, 90, 30);
@@ -136,21 +137,21 @@ public class WorkVectors {
                     window2.add(endPointY3);
                 }
                 else {
-                    l3 = new JLabel("ERROR");
-                    l3.setBounds(10, 115, 70, 30);
-                    window2.add(l3);
+
+
+                    l4.setBounds(10, 115, 70, 30);
+                    window2.add(l4);
                 }
                 window2.setLayout(null);
                 window2.setVisible(true);
                 window2.setSize(500,300);
 
 
-            }
+
         });
 
 
-        bMinus.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
+        bMinus.addActionListener(e->{
                 b[0] =  startPointX.getText();
                 b[1] = startPointY.getText();
                 b[2] = endPointX.getText();
@@ -188,13 +189,9 @@ public class WorkVectors {
 
 
 
-                JLabel l3,x1,x2,y1,y2;
+               // JLabel l3,x1,x2,y1,y2;
                 if(aux) {
-                    l3 = new JLabel("New Vector");
-                    x1 = new JLabel("Start Point X");
-                    y1 = new JLabel("Start Point Y");
-                    x2 = new JLabel("End point X");
-                    y2 = new JLabel("End point Y");
+
                     l3.setBounds(10, 115, 70, 30);
 
                     x1.setBounds(80, 4, 90, 30);
@@ -212,14 +209,13 @@ public class WorkVectors {
                     window2.add(endPointY3);
                 }
                 else {
-                    l3 = new JLabel("ERROR");
-                    l3.setBounds(10, 115, 70, 30);
-                    window2.add(l3);
+                    l4.setBounds(10, 115, 70, 30);
+                    window2.add(l4);
                 }
                 window2.setLayout(null);
                 window2.setVisible(true);
                 window2.setSize(500,300);
-            }
+
         });
 
 
